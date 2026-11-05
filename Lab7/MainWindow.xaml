@@ -1,0 +1,44 @@
+﻿<Window x:Class="Lab7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7"
+        mc:Ignorable="d"
+        Title="Симулятор онлайн-тестування" Height="500" Width="800"
+        Background="LightBlue">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0" Padding="10" Margin="0,0,0,10">
+            <GroupBox.Header>
+                <TextBlock Text="Панель керування" FontWeight="Bold"/>
+            </GroupBox.Header>
+            <WrapPanel VerticalAlignment="Center">
+                <TextBlock Text="Тривалість (хв):" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="txtMinutes" Width="60" Margin="0,0,15,0"/>
+
+                <TextBlock Text="Правильних відповідей (з 10):" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="txtAnswers" Width="60" Margin="0,0,15,0"/>
+
+                <TextBlock x:Name="lblTime" Text="Залишилось: --:--" FontWeight="Bold" VerticalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="720">
+                    <Button x:Name="btnStart" Content="Почати тест" Click="btnStart_Click"  FontWeight="Bold" Padding="15,6" Margin="0,0,10,0"/>
+                    <Button x:Name="btnFinish" Content="Завершити тест" Click="btnFinish_Click" IsEnabled="False"  FontWeight="Bold" Padding="15,6" Margin="0,0,10,0"/>
+                    <Button x:Name="btnSpeed" Content="Прискорити на 1 хв" Click="btnSpeed_Click" IsEnabled="False"  FontWeight="Bold" Padding="15,6"/>
+                </StackPanel>
+            </WrapPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Padding="10">
+            <GroupBox.Header>
+                <TextBlock Text="Журнал подій" FontWeight="Bold"/>
+            </GroupBox.Header>
+            <ListBox x:Name="logListBox" FontSize="14"/>
+        </GroupBox>
+    </Grid>
+</Window>
